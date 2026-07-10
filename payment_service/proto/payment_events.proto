@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package payment_events;
+
+option go_package = "payment_service/gen/payment_events";
+
+import "google/protobuf/timestamp.proto";
+
+message PaymentProcessedEvent {
+  string payment_id = 1;
+  string order_id = 2;
+  double amount = 3;
+  string currency = 4;
+  string transaction_id = 5;
+  google.protobuf.Timestamp processed_at = 6;
+}
+
+message PaymentFailedEvent {
+  string payment_id = 1;
+  string order_id = 2;
+  string error_code = 3;
+  string error_message = 4;
+  google.protobuf.Timestamp failed_at = 5;
+}
+
+message PaymentRefundedEvent {
+  string payment_id = 1;
+  string order_id = 2;
+  double amount = 3;
+  string reason = 4;
+  google.protobuf.Timestamp refunded_at = 5;
+}

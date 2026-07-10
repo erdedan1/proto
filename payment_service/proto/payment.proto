@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package payment;
+
+option go_package = "payment_service/gen/payment";
+
+import "google/protobuf/timestamp.proto";
+
+enum PaymentStatus {
+  PAYMENT_STATUS_UNSPECIFIED = 0;
+  PAYMENT_STATUS_PENDING = 1;
+  PAYMENT_STATUS_PROCESSED = 2;
+  PAYMENT_STATUS_FAILED = 3;
+  PAYMENT_STATUS_REFUNDED = 4;
+}
+
+message ProcessPaymentRequest {
+  string payment_id = 1;
+  string order_id = 2;
+  string user_id = 3;
+  double amount = 4;
+  string currency = 5;
+  string payment_method = 6;
+  string idempotency_key = 7;
+}
+
+message ProcessPaymentResponse {
+  string payment_id = 1;
+  PaymentStatus status = 2;
+  string transaction_id = 3;
+  google.protobuf.Timestamp processed_at = 4;
+}
+
+message RefundPaymentRequest {
+  string payment_id = 1;
+  string order_id = 2;
+  string reason = 3;
+}
+
+message RefundPaymentResponse {
+  string payment_id = 1;
+  PaymentStatus status = 2;
+  google.protobuf.Timestamp refunded_at = 3;
+}
+
+message GetPaymentStatusRequest {
+  string payment_id = 1;
+}
+
+message GetPaymentStatusResponse {
+  string payment_id = 1;
+  PaymentStatus status = 2;
+  double amount = 3;
+  string currency = 4;
+  google.protobuf.Timestamp created_at = 5;
+}
+
+service PaymentService {
+  rpc ProcessPayment(ProcessPaymentRequest) returns (ProcessPaymentResponse);
+  rpc RefundPayment(RefundPaymentRequest) returns (RefundPaymentResponse);
+  rpc GetPaymentStatus(GetPaymentStatusRequest) returns (GetPaymentStatusResponse);
+}
