@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package order.events;
+
+option go_package = "order_service/gen/order_events";
+
+import "google/protobuf/timestamp.proto";
+
+message OrderCreatedEvent {
+  string order_id = 1;
+  string user_id = 2;
+  string market_id = 3;
+  string order_type = 4;
+  string price = 5;
+  int64 quantity = 6;
+  google.protobuf.Timestamp created_at = 7;
+}
+
+message OrderConfirmedEvent {
+  string order_id = 1;
+  google.protobuf.Timestamp confirmed_at = 2;
+}
+
+message OrderPaidEvent {
+  string order_id = 1;
+  string payment_id = 2;
+  google.protobuf.Timestamp paid_at = 3;
+}
+
+message OrderCancelledEvent {
+  string order_id = 1;
+  string reason = 2;
+  google.protobuf.Timestamp cancelled_at = 3;
+}

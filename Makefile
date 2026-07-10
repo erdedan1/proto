@@ -5,7 +5,8 @@ proto: order
 order:
 	$(PROTOC) \
 		-I=. \
-		-I=proto/order_service/proto \
+		-I=order_service/proto \
 		--go_out=. \
 		--go-grpc_out=. \
-		order_service/order.proto
+		order_service/proto/order.proto \
+		order_service/proto/order_events.proto
