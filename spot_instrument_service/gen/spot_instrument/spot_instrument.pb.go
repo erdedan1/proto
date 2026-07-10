@@ -10,7 +10,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
-	market "spot_instrument_service/gen/market"
 	sync "sync"
 	unsafe "unsafe"
 )
@@ -68,7 +67,7 @@ func (x *ViewMarketsRequest) GetUserRoles() []string {
 
 type ViewMarketsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Markets       []*market.Market       `protobuf:"bytes,1,rep,name=markets,proto3" json:"markets,omitempty"`
+	Markets       []*Market              `protobuf:"bytes,1,rep,name=markets,proto3" json:"markets,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -103,7 +102,7 @@ func (*ViewMarketsResponse) Descriptor() ([]byte, []int) {
 	return file_spot_instrument_service_proto_spot_instrument_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *ViewMarketsResponse) GetMarkets() []*market.Market {
+func (x *ViewMarketsResponse) GetMarkets() []*Market {
 	if x != nil {
 		return x.Markets
 	}
@@ -139,7 +138,7 @@ var file_spot_instrument_service_proto_spot_instrument_proto_msgTypes = make([]p
 var file_spot_instrument_service_proto_spot_instrument_proto_goTypes = []any{
 	(*ViewMarketsRequest)(nil),  // 0: spot_instrument.ViewMarketsRequest
 	(*ViewMarketsResponse)(nil), // 1: spot_instrument.ViewMarketsResponse
-	(*market.Market)(nil),       // 2: spot_instrument.Market
+	(*Market)(nil),              // 2: spot_instrument.Market
 }
 var file_spot_instrument_service_proto_spot_instrument_proto_depIdxs = []int32{
 	2, // 0: spot_instrument.ViewMarketsResponse.markets:type_name -> spot_instrument.Market
@@ -157,6 +156,7 @@ func file_spot_instrument_service_proto_spot_instrument_proto_init() {
 	if File_spot_instrument_service_proto_spot_instrument_proto != nil {
 		return
 	}
+	file_spot_instrument_service_proto_market_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,7 +4,7 @@
 // 	protoc        v7.34.1
 // source: spot_instrument_service/proto/market.proto
 
-package market
+package spot_instrument
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -181,7 +181,7 @@ const file_spot_instrument_service_proto_market_proto_rawDesc = "" +
 	"\fMarketStatus\x12\x1d\n" +
 	"\x19MARKET_STATUS_UNSPECIFIED\x10\x00\x12\x19\n" +
 	"\x15MARKET_STATUS_ENABLED\x10\x01\x12\x1a\n" +
-	"\x16MARKET_STATUS_DISABLED\x10\x02B$Z\"spot_instrument_service/gen/marketb\x06proto3"
+	"\x16MARKET_STATUS_DISABLED\x10\x02B-Z+spot_instrument_service/gen/spot_instrumentb\x06proto3"
 
 var (
 	file_spot_instrument_service_proto_market_proto_rawDescOnce sync.Once

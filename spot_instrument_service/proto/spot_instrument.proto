@@ -4,7 +4,7 @@ package spot_instrument;
 
 option go_package = "spot_instrument_service/gen/spot_instrument";
 
-import "github.com/erdedan1/protocol/spot_instrument_service/proto/market.proto";
+import "spot_instrument_service/proto/market.proto";
 
 message ViewMarketsRequest {
   repeated string user_roles = 1;

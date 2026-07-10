@@ -5,7 +5,6 @@ proto: order spot
 order:
 	$(PROTOC) \
 		-I=. \
-		-I=order_service/proto \
 		--go_out=. \
 		--go-grpc_out=. \
 		order_service/proto/order.proto \
@@ -14,7 +13,6 @@ order:
 spot:
 	$(PROTOC) \
 		-I=. \
-		-I=spot_instrument_service/proto \
 		--go_out=. \
 		--go-grpc_out=. \
 		spot_instrument_service/proto/market.proto \

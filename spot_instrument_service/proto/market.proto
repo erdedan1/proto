@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package spot_instrument;
 
-option go_package = "spot_instrument_service/gen/market";
+option go_package = "spot_instrument_service/gen/spot_instrument";
 
 import "google/protobuf/timestamp.proto";
 
