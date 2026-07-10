@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package spot_instrument;
+
+option go_package = "spot_instrument_service/gen/market";
+
+import "google/protobuf/timestamp.proto";
+
+enum MarketStatus {
+  MARKET_STATUS_UNSPECIFIED = 0;
+  MARKET_STATUS_ENABLED = 1;
+  MARKET_STATUS_DISABLED = 2;
+}
+
+message Market {
+  string id = 1;
+  string name = 2;
+  MarketStatus status = 3;
+  bool enabled = 4;                   
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp deleted_at = 6;  
+  repeated string allowed_roles = 7;  
+}
