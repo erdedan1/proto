@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package order;
 
-option go_package = "order_service/gen";
+option go_package = "order_service/gen/order";
 
 import "google/protobuf/timestamp.proto";
 
