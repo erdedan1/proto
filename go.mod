@@ -1,4 +1,4 @@
-module protocol
+module github.com/erdedan1/protocol
 
 go 1.26.1
 
